@@ -1,0 +1,7 @@
+ls ; mkdir
+
+
+
+hey, how are you doing?
+
+exit
