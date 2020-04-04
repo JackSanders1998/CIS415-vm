@@ -1,9 +1,9 @@
 /*
-* Description: <write a brief description of your lab>
+* Description: lfcat
 *
-* Author: <your name>
+* Author: Jack Sanders
 *
-* Date: <today's date>
+* Date: 04.17.2020
 *
 * Notes:
 * 1. <add notes we should consider when grading>
@@ -60,11 +60,6 @@ int main() {
 			check = 0;
 			break;
 		}
-		//lfcat = strstr(buffer, "lfcat");
-		//if((lfcat != NULL) && (characters == 6)) {
-		//	printf("\n");
-		//	printf("<<In lfcat()>>");
-		//}
 
 		else if(characters != 1) {
 			char s[256];
@@ -74,24 +69,21 @@ int main() {
 			int lfcat_count = 0;
 			while (token) {
 				i++;
-				//printf("\nT%d: %s", i, token);
-				//arr[i] = *token;
-
 				lfcat_test = strstr(token, "lfcat");
 				punc = strstr(token, ";");
-				//exit = strstr(token, "exit");
+
 				if((lfcat_test == NULL) && (punc == NULL)) {
 					printf("Error! Unrecognized command: %s", token);
 					lfcat_count = 0;
 					break;
 				}
 				else if((lfcat_test != NULL) && (characters == 6)) {
-					printf("  --> <<in lfcat()>>\n");
+					printf("<<In lfcat(): Step-01: Function called>>\n");
+                    printf("<<In lfcat(): Step-02: Listing all files in current dir.>>\n");
 					lfcat();
 				}
 				else if((lfcat_test != NULL) && (i == 1)) {
 					lfcat_count++;
-					//printf("  --> <<in lfcat()>>\n");
 				}
 				else if((lfcat_count == 1) && ((lfcat_test == NULL) && (punc == NULL))) {
 					printf("Error! Unsupported parameters for command: lfcat");
@@ -108,8 +100,9 @@ int main() {
 				//i++;
 			}
 				for(int j = 0; j < lfcat_count; j++){
-						printf("  --> <<in lfcat()>>\n");
-						lfcat();
+					printf("<<In lfcat(): Step-01: Function called>>\n");
+                    printf("<<In lfcat(): Step-02: Listing all files in current dir.>>\n");
+					lfcat();
 				}
 		}
 

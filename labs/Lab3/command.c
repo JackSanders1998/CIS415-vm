@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <string.h>
+#include <unistd.h>
 
 void lfcat() {
 	// Define your variables here
@@ -22,14 +23,14 @@ void lfcat() {
    	if (dr == NULL) {
    		printf("Could not open current directory" );
    	}
-
+    char* name_test;
    	// use a while loop to read the dir
    	while ((de = readdir(dr)) != NULL) {
 	   	printf("%s\n", de->d_name);
 
 	   	FILE *ifp, *ofp;
 	   	char *mode = "r";
-	   	char outputFilename[] = "output_test.txt";
+	   	char outputFilename[] = "log.txt";
 	   	
 	   	ifp = fopen(de->d_name, mode);
 
@@ -38,9 +39,11 @@ void lfcat() {
 
     	// read each line and print it to the screen
     	ofp = fopen(outputFilename, "w");
-    	while(-1 != getline(&buffer, &buffer_size, ifp))
+        
+        name_test = strstr(buffer, ".py");
+    	while((name_test != NULL) -1 != getline(&buffer, &buffer_size, ifp))
     	{
-        	fprintf(ofp, "%s", buffer);
+        	fprintf(ofp, "%s", "hey");
 
     	}
     	fprintf(ofp, "%s", "--------------------------------------------------------------------------------");
@@ -49,7 +52,10 @@ void lfcat() {
 
     	// make sure we close the file and clean up the buffer when we're finished
     	free(buffer);
+    fclose(ifp);
+    fclose(ofp);
 	}
+
 	closedir(dr);
 	
 
