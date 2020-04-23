@@ -13,7 +13,6 @@ void listDir() { /*for the ls command*/
 	
 	char cwd[PATH_MAX];
 	struct dirent *files;
-	int valid = 1;
 
    	if (getcwd(cwd, sizeof(cwd)) != NULL) {
    		DIR *directory = opendir(cwd);

@@ -39,10 +39,10 @@ int main(int argc, char *argv[]) {
     }
 }
 //----------------------------------------------------// 
-
-  if (file_mode) {
     FILE *input;
     FILE *output;
+  if (file_mode) {
+
     FILE *line_input;
 
     char line;
@@ -199,6 +199,11 @@ int main(int argc, char *argv[]) {
       if (file_mode)
         line_count--;
   }
+    if (file_mode) {
+        fclose(input);
+}
+
+    free(buffer);        
   return 1;
 }
 
